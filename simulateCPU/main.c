@@ -26,14 +26,10 @@ int main(void)
 		if (data)//警告，因为 malloc 如果可用内存不足，对的调用可能会返回 null：使用前需要验证
 		{
 			//*(data++) = 0;//bug 数组越界，导致free时报错，产生断点
-			data[i] = 0;
-			
-		}
-		
-	}
-		
+			data[i] = 0;			
+		}		
+	}		
 	int ip = 0, flag = 0, ir = 0;
-
 	read(code);	//读取指令 
 	analyze(code, data, ax, &ip, &ir, &flag); //分析 执行指令
 	output(&ip, code, data);

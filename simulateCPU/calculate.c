@@ -5,8 +5,7 @@
 算数运算指令
 参数——同division函数的参数
 */
-void calculate(int operate, int dest, int source, int imm
-	, char *code, int *data, int ax[], int* ip, int* ir, int* flag)
+void calculate(int operate, int dest, int source, int imm,int *data, int ax[])
 {
 	//立即数 imm  的传递
 	if (source == 0) {

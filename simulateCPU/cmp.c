@@ -3,10 +3,9 @@
 
 /*
 比较指令
-参数——同division函数的参数
+
 */
-void cmp(int operate, int dest, int source, int imm
-	, char *code, int *data, int ax[], int* ip, int* ir, int* flag)
+void cmp(int dest, int source, int imm, int *data, int ax[], int* flag)
 {
 	//立即数  的传递 
 	if (source == 0) {
