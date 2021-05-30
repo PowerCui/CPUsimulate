@@ -5,10 +5,10 @@
 算数运算指令
 参数——同division函数的参数
 */
-void calculate(int operate, int dest, int source, int imm,int *data, int ax[])
+void calculate(int operate, int dest, int src, int imm,int *data, int ax[])
 {
 	//立即数 imm  的传递
-	if (source == 0) {
+	if (src == 0) {
 		switch (operate) {
 		case 2:
 			ax[dest] += imm;
@@ -30,16 +30,16 @@ void calculate(int operate, int dest, int source, int imm,int *data, int ax[])
 	else {
 		switch (operate) {
 		case 2:
-			ax[dest] += data[(ax[source] - 16384) / 2];
+			ax[dest] += data[(ax[src] - 16384) / 2];
 			break;
 		case 3:
-			ax[dest] -= data[(ax[source] - 16384) / 2];
+			ax[dest] -= data[(ax[src] - 16384) / 2];
 			break;
 		case 4:
-			ax[dest] *= data[(ax[source] - 16384) / 2];
+			ax[dest] *= data[(ax[src] - 16384) / 2];
 			break;
 		case 5:
-			ax[dest] /= data[(ax[source] - 16384) / 2];
+			ax[dest] /= data[(ax[src] - 16384) / 2];
 			break;
 		default:
 			break;

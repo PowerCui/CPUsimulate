@@ -7,26 +7,68 @@
 功能	输出8*16代码，16*16数据 （以十进制）
 返回值 	NULL
 */
-void output(int* ip, char* code, int* data)
+void output(char* code, int* data)
 {
 	int cnt, operate, head, i;
 	operate = 1;
 	cnt = 0;
-	*ip = 0;
+	int ip = 0;
 	//代码段  
 	printf("\ncodeSegment :\n");
-	while (operate != 0)
+	//单核输出
+	/*while (operate != 0)
 	{
-		head = (*ip) / 4 * 33;
+		head = (ip) / 4 * 33;
 		operate = btod(code, head, 32);
 		printf("%d ", operate);
-		*ip = (*ip) + 4;
+		ip = (ip) + 4;
 		cnt++;
 		if (cnt % 8 == 0)
 			printf("\n");
 	}
 	for (i = 16 * 8 - cnt; i > 0; i--)
 	{
+		printf("0 ");
+		cnt++;
+		if (cnt % 8 == 0)
+			printf("\n");
+	}*/
+	//多核输出
+	while (operate != 0)
+	{
+		head = (ip) / 4 * 33;
+		operate = btod(code, head, 32);
+		printf("%d ", operate);
+		ip = (ip)+4;
+		cnt++;
+		if (cnt % 8 == 0)
+			printf("\n");
+	}
+	for (i = 8 * 8 - cnt; i > 0; i--)
+	{
+
+		printf("0 ");
+		cnt++;
+		if (cnt % 8 == 0)
+			printf("\n");
+	}
+	ip = 4 * CODESEG_2;
+	head = (ip) / 4 * 33;
+	if (code[CODESEG_2] != NULL)
+		operate = btod(code, head, 32);
+	while (operate != 0)
+	{
+		head = (ip) / 4 * 33;
+		operate = btod(code, head, 32);
+		printf("%d ", operate);
+		ip = (ip)+4;
+		cnt++;
+		if (cnt % 8 == 0)
+			printf("\n");
+	}
+	for (i = 16 * 8 - cnt; i > 0; i--)
+	{
+
 		printf("0 ");
 		cnt++;
 		if (cnt % 8 == 0)

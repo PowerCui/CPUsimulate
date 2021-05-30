@@ -144,7 +144,7 @@
     <ClCompile Include="cmp.c" />
     <ClCompile Include="division.c" />
     <ClCompile Include="jmp.c" />
-    <ClCompile Include="log.c" />
+    <ClCompile Include="logic.c" />
     <ClCompile Include="mov.c" />
     <ClCompile Include="output.c" />
     <ClCompile Include="read.c" />
@@ -153,7 +153,18 @@
     <ClCompile Include="analyze.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="simulate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="simulateCPU.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dict(多核).dic.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dict1.dic" />
+    <None Include="dict2.dic" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

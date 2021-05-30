@@ -9,7 +9,7 @@
 功能	根据operate 进行 相应的操作
 返回值	NULL
 */
-void stdin_out(int operate, int dest, int ax[])
+void stdin_out(int operate, int dest, int ax[],int* id)
 {
 	switch (operate) 
 	{
@@ -21,9 +21,15 @@ void stdin_out(int operate, int dest, int ax[])
 		break;
 		case 12:
 		{
+			/*printf("\n********************\n");
+			printf("id = ");
+			printf("%d    ", *id);
 			printf("out: ");
-			printf("%d\n", ax[dest]);
+			printf("%d   *\n", ax[dest]);
+			printf("********************\n\n");*/
+			//一次输出，防止线程竞争导致输出错乱
+			printf("\n********************\nid = %d    out: %d   *\n********************\n\n", *id, ax[dest]);
 		}
-			
+		break;
 	}
 }

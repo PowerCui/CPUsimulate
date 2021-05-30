@@ -25,7 +25,7 @@ int btod(char *code, int head, int n)
 
 	}
 
-	//立即数需要判断，是否为负数 
+	//立即数需要判断，是否为负数 ,补码转码
 	if (n == 16) {
 		if (sum <= 32767)
 			return sum;
